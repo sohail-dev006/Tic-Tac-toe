@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        #element {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+        }
+        #element button {
+            width: 100px;
+            height: 100px;
+            font-size: 24px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="element"></div>
+    <button id="restart">Restart</button>
+    <div id="message"></div>
+    
+    <script>
+        let box = document.getElementById("element");
+        let Reset = document.querySelector("#restart");
+        let message = document.getElementById("message");
+
+        let click = true; // true for "O", false for "X"
+
+        const winningArray = [
+            [0, 1, 2], // Top row
+            [0, 4, 8], // Diagonal from top-left
+            [0, 3, 6], // Left column
+            [1, 4, 7], // Center column
+            [2, 4, 6], // Diagonal from top-right
+            [2, 5, 8], // Right column
+            [3, 4, 5], // Middle row
+            [6, 7, 8]  // Bottom row
+        ];
+
+        let array = ["", "", "", "", " ", " ", "", " ", " "];
+
+        function createBoard() {
+            box.innerHTML = ''; // Clear existing buttons
+            array.forEach((e, index) => {
+                let btn = document.createElement("button");
+                btn.innerText = e;
+                box.append(btn);
+                btn.addEventListener('click', () => {
+                    if (btn.disabled) return; // Prevent clicking on already disabled buttons
+                    if (click) {
+                        btn.innerText = "O";
+                        array[index] = "O";
+                        click = false;
+                    } else {
+                        btn.innerText = "X";
+                        array[index] = "X";
+                        click = true;
+                    }
+                    btn.disabled = true;
+                    win();
+                });
+            });
+        }
+
+        function win() {
+            console.log(array);
+            for (const combination of winningArray) {
+                const [a, b, c] = combination;
+                const valueA = array[a];
+                const valueB = array[b];
+                const valueC = array[c];
+
+                if (valueA && valueA === valueB && valueB === valueC) {
+                    message.textContent = `Winner: ${valueA}`;
+                    return; // Exit once a winner is found
+                }
+            }
+
+            // Check for a draw
+            if (array.every(cell => cell === "O" || cell === "X")) {
+                message.textContent = "It's a draw!";
+            }
+        }
+
+        function resetGame() {
+            array = ["", "", "", "", " ", " ", "", " ", " "];
+            click = true; // Reset to "O" turn
+            message.textContent = ''; // Clear the winner message
+            createBoard(); // Recreate the board
+        }
+
+        Reset.addEventListener('click', resetGame);
+
+        createBoard(); // Initialize the board
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- function disableAllButtons() {
+    let buttons = document.querySelectorAll('#element button');
+    buttons.forEach(button => button.disabled = true);
+}
+
+function enableAllButtons() {
+    let buttons = document.querySelectorAll('#element button');
+    buttons.forEach(button => {
+        button.disabled = false;
+        button.innerText = ""; // Clear button text
+    });
+}
+
+function resetGame() {
+    array = [".", "", "", ".", " ", " ", ".", " ", " "];
+    click = true;
+    message.textContent = "";
+    enableAllButtons();
+} -->

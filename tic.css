@@ -1,0 +1,57 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: rgb(22, 22, 56);
+}
+h1{
+    text-align: center;
+    margin: 5px 0px 10px 0px;
+    color: chartreuse;
+}
+
+.container{
+    display: flex;
+    grid-template-columns: 100px 100px 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    height: 60px;
+    background-color: rgb(18, 10, 27);
+    padding: 50px 50px 100px 50px;
+    color: red;
+    font-size: 35px;
+    font-weight: 700;
+    border: 3px solid white;
+}
+#element{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 150px 150px; 
+}
+.restart{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px 0px 0px;
+}
+#reset{
+    text-decoration: none;
+    background-color: rgb(3, 3, 3);
+    color: rgb(230, 222, 211);
+    border-radius: 10px;
+    font-size: 25px;  
+    border: none;
+    padding: 10px 20px;
+}
+#message{
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 45px;
+    color: blue;
+}
+
+
+
