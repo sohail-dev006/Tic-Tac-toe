@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</head>
+<body>
+
+<input type="text" id="number1" value="">
+<input type="text" id="number2" value="">
+<button onclick="addnumbers()">ADD</button>
+
+<p id="result"></p>
+
+
+<script>
+    function addnumbers() {
+        let num1 = document.getElementById("number1").value;
+        let num2 = document.getElementById("number2").value;
+
+        num1 = parseFloat(num1);
+        num2 = parseFloat(num2);
+
+        let results = num1 + num2;
+
+        document.getElementById("result").innerHTML = results;
+    }
+</script>
+
+
+
+<!-- my code -->
+ <!-- <button class="box">1</button>
+ <button class="box">2</button>
+ <button class="box">3</button>
+ <button class="box">4</button>
+ <button class="box">5</button>
+ <button class="box">6</button>
+ <button class="box">7</button>
+ <button class="box">8</button>
+ <button class="box">9</button>
+ <button class="box">0</button>
+ <button class="box">C</button>
+
+<div class="container">
+   <div class="div">
+    <input type="text" id="input">
+    <div class="buttons"></div>
+   </div>
+    
+</div> -->
+
+ <script>
+    const buttons = document.querySelectorAll(".box")
+    // console.log(buttons);
+
+//     buttons.forEach((item) => {
+//         console.log(item.innerText);
+//     })
+
+//     const allButtons = document.querySelector(".buttons")
+
+
+//     const arr  =  [1 , 2 , 3, 4 , 5 , 6 , 7, 8 , 9 , 10,]
+
+//     arr.map((item) => {
+//         allButtons.innerHTML += ` <button> ${item} </button> `
+
+        
+//     })
+
+
+
+
+
+//     let box = document.getElementById("btn0");
+
+//  </script>
+
+
+// <script>
+//    const accountCity = "skardu"
+
+
+//     console.log(accountCity);
+
+
+//     function sum () {
+//        document.write("sdcdfvf");
+//     }
+//      sum();
+
+// </script>
+
+
+<script>
+    let myDate = new Date()
+
+    console.log(myDate);
+    document.write(myDate);
+</script>
+    
+</body>
+</html>
+<!-- 
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .div{
+        padding: 10px;
+        background: #272222;
+        width: 280px;
+    }
+    .div input{
+        width: 270px;
+    }
+</style> -->
